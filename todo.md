@@ -4,7 +4,7 @@
 - ~~add ngrx effects dep~~
 - ~~create "github-repos" module~~
 - ~~routing setup, implement repo search and info pages~~
-- design domain object models 
+- ~~design domain object models~~ 
 - implement api service
 - state setup
 - implement search input directive
