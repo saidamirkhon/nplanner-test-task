@@ -2,8 +2,8 @@
 - ~~add angular material dep~~
 - ~~add ngrx dep~~
 - ~~add ngrx effects dep~~
-- create "github-repos" module
-- routing setup, implement repo search and info pages
+- ~~create "github-repos" module~~
+- ~~routing setup, implement repo search and info pages~~
 - design domain object models 
 - implement api service
 - state setup
