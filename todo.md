@@ -1,0 +1,14 @@
+- ~~initialize Angular 9 app~~
+- add angular material dep
+- add ngrx dep
+- add ngrx effects dep
+- create "github-repos" module
+- routing setup, implement repo search and info pages
+- design domain object models 
+- implement api service
+- state setup
+- implement search input directive
+- implement repository list dumb component
+- implement filter bar dumb component
+- implement repo info dumb component
+- test and bug fix, styling tweaks
