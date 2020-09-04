@@ -8,11 +8,15 @@ import {
 } from '@angular/common/http';
 import { ApiUrlBasePrependInterceptor } from './service/api-url-base-prepend.interceptor';
 import { GithubRepoApiService } from './service/github-repo-api.service';
+import { StoreModule } from '@ngrx/store';
+import { githubRepoReducer } from './state/github-repo.reducer';
+import { GithubRepoStateService } from './service/github-repo-state.service';
 
 @NgModule({
   imports: [
     GithubRepoRoutingModule,
     HttpClientModule,
+    StoreModule.forFeature('githubRepo', githubRepoReducer),
   ],
   declarations: [
     GithubRepoSearchPageComponent,
@@ -24,7 +28,8 @@ import { GithubRepoApiService } from './service/github-repo-api.service';
       useClass: ApiUrlBasePrependInterceptor,
       multi: true
     },
-    GithubRepoApiService
+    GithubRepoApiService,
+    GithubRepoStateService
   ]
 })
 export class GithubRepoModule {
