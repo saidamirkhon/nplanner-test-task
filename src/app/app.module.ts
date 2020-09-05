@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { NotificationModule } from './shared/notification/notification.module';
+import { AppEffects } from './state/app.effects';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,10 @@ import { EffectsModule } from '@ngrx/effects';
     BrowserModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({}),
-    EffectsModule.forRoot()
+    EffectsModule.forRoot([
+      AppEffects
+    ]),
+    NotificationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

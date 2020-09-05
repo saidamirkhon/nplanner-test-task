@@ -17,7 +17,7 @@ export class GithubRepoApiService {
     });
   }
 
-  fetchRepoInfo(owner: string, repo: string): Observable<GithubRepo> {
-    return this.http.get<GithubRepo>(`/repos/${owner}/${repo}`);
+  fetchRepoInfo(owner: string, name: string): Observable<GithubRepo> {
+    return this.http.get<GithubRepo>(`/repos/${owner}/${name}`);
   }
 }

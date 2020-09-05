@@ -15,6 +15,7 @@ import {
 } from './github-repo.actions';
 import { GithubRepoLite } from '../model/github-repo-lite';
 import { GithubRepoListFilterPatch } from '../model/github-repo-list-filter-patch';
+import { GithubRepo } from '../model/github-repo';
 
 const reducer: ActionReducer<GithubRepoState> = createReducer(
   GITHUB_REPO_DEFAULT_STATE,
@@ -29,10 +30,10 @@ const reducer: ActionReducer<GithubRepoState> = createReducer(
   ),
   on(
     searchGithubRepoSuccess,
-    (state: GithubRepoState, action: {githubRepoList: Array<GithubRepoLite>}): GithubRepoState => {
+    (state: GithubRepoState, action: {repoList: Array<GithubRepoLite>}): GithubRepoState => {
       return {
         ...state,
-        githubRepoList: action.githubRepoList,
+        githubRepoList: action.repoList,
         githubRepoListIsLoading: false
       };
     }
@@ -48,10 +49,11 @@ const reducer: ActionReducer<GithubRepoState> = createReducer(
   ),
   on(
     fetchGithubRepoInfoSuccess,
-    (state: GithubRepoState, action: {repoInfo}): GithubRepoState => {
+    (state: GithubRepoState, action: {repo: GithubRepo}): GithubRepoState => {
       return {
         ...state,
-        activeGithubRepo: action.repoInfo
+        activeGithubRepo: action.repo,
+        githubRepoListIsLoading: false
       };
     }
   ),

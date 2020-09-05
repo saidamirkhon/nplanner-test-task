@@ -6,7 +6,7 @@
 - ~~routing setup, implement repo search and info pages~~
 - ~~design domain object models~~ 
 - ~~implement api service~~
-- `state setup`
+- ~~state setup~~
 - implement search input directive
 - implement repository list dumb component
 - implement filter bar dumb component

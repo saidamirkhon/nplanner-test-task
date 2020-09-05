@@ -12,7 +12,7 @@ export const searchGithubRepo = createAction(
 );
 export const searchGithubRepoSuccess = createAction(
   '[Github Repo] Search repo success',
-  props<{githubRepoList: Array<GithubRepoLite>}>()
+  props<{repoList: Array<GithubRepoLite>}>()
 );
 export const searchGithubRepoFail = createAction(
   '[Github Repo] Search repo fail'
@@ -23,10 +23,7 @@ export const fetchGithubRepoInfo = createAction(
 );
 export const fetchGithubRepoInfoSuccess = createAction(
   '[Github Repo] Fetch repo info success',
-  props<{repoInfo: GithubRepo}>()
-);
-export const fetchGithubRepoInfoFail = createAction(
-  '[Github Repo] Fetch repo fail'
+  props<{repo: GithubRepo}>()
 );
 export const filterGithubRepoList = createAction(
   '[Github Repo] Filter repo list',

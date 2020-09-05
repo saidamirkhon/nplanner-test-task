@@ -11,12 +11,15 @@ import { GithubRepoApiService } from './service/github-repo-api.service';
 import { StoreModule } from '@ngrx/store';
 import { githubRepoReducer } from './state/github-repo.reducer';
 import { GithubRepoStateService } from './service/github-repo-state.service';
+import { EffectsModule } from '@ngrx/effects';
+import { GithubRepoEffects } from './state/github-repo.effects';
 
 @NgModule({
   imports: [
     GithubRepoRoutingModule,
     HttpClientModule,
     StoreModule.forFeature('githubRepo', githubRepoReducer),
+    EffectsModule.forFeature([GithubRepoEffects])
   ],
   declarations: [
     GithubRepoSearchPageComponent,
