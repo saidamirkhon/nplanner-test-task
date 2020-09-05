@@ -1,0 +1,7 @@
+<mat-slider
+  (change)="sliderChange.emit($event.value)"
+  [value]="initialValue"
+  [min]="range.min"
+  [max]="range.max"
+  thumbLabel="true"
+></mat-slider>

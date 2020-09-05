@@ -1,5 +1,5 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
+<form>
+  <mat-form-field>
     <mat-label>Search repo</mat-label>
     <input
       (appSearch)="searchRepo($event)"
@@ -13,6 +13,13 @@
     ></mat-spinner>
   </mat-form-field>
 </form>
+<app-repo-list-filter
+  (maxOpenIssuesChange)="maxOpenIssuesChange($event)"
+  (programmingLanguageChange)="programmingLanguageChange($event)"
+  [maxOpenIssues]="numMaxOpenIssuesFilter$ | async"
+  [numOpenIssuesRange]="numOpenIssuesRange$ | async"
+  [programmingLanguageList]="programmingLanguageList$ | async"
+></app-repo-list-filter>
 <app-repo-list
   (showRepoDetails)="showRepoDetails($event)"
   [repoList]="repoList$ | async"

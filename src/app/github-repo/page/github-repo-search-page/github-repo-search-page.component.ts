@@ -10,6 +10,7 @@ import {
   Router
 } from '@angular/router';
 import { GithubRepoPath } from '../../enum/github-repo-path';
+import { NumberRange } from '../../../model/number-range';
 
 @Component({
   selector: 'app-github-repo-search-page',
@@ -19,6 +20,9 @@ import { GithubRepoPath } from '../../enum/github-repo-path';
 export class GithubRepoSearchPageComponent {
   readonly repoListIsLoading$: Observable<boolean> = this.githubRepoStateService.githubRepoListIsLoading$;
   readonly repoList$: Observable<Array<GithubRepoLite>> = this.githubRepoStateService.githubRepoList$;
+  readonly numMaxOpenIssuesFilter$ = this.githubRepoStateService.numMaxOpenIssuesFilter$;
+  readonly numOpenIssuesRange$: Observable<NumberRange> = this.githubRepoStateService.numOpenIssuesRange$;
+  readonly programmingLanguageList$: Observable<Array<string>> = this.githubRepoStateService.programmingLanguageList$;
 
   constructor(
     private githubRepoStateService: GithubRepoStateService,
@@ -42,5 +46,17 @@ export class GithubRepoSearchPageComponent {
         }
       }
     );
+  }
+
+  maxOpenIssuesChange(maxOpenIssues: number): void {
+    this.githubRepoStateService.filterGithubRepoList({
+      maxOpenIssues
+    });
+  }
+
+  programmingLanguageChange(programmingLanguage: string): void {
+    this.githubRepoStateService.filterGithubRepoList({
+      programmingLanguage
+    });
   }
 }

@@ -37,7 +37,7 @@ export const selectNumOpenIssuesRange: MemoizedSelector<AppState, NumberRange> =
         if (range.min === null || open_issues_count < min) {
           range.min = open_issues_count;
         }
-        if (range.max === null || max > open_issues_count) {
+        if (range.max === null || open_issues_count > max) {
           range.max = open_issues_count;
         }
         return range;
@@ -58,7 +58,7 @@ export const selectProgrammingLanguageList: MemoizedSelector<AppState, Array<str
           repo: GithubRepoLite
         ) => {
           const {language} = repo;
-          if (!cache[language]) {
+          if (language && !cache[language]) {
             cache[language] = language;
           }
           return cache;
@@ -100,7 +100,7 @@ export const selectGithubRepoListFiltered: MemoizedSelector<AppState, Array<Gith
       return repoList.filter(
         (repo: GithubRepoLite) =>
           repo.open_issues_count <= numMaxOpenIssuesFilter
-          && repo.language ? repo.language === programmingLanguageFilter : true
+          && programmingLanguageFilter ? repo.language === programmingLanguageFilter : true
       );
     }
   );

@@ -21,6 +21,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { RepoListComponent } from './component/repo-list/repo-list.component';
 import { MatButtonModule } from '@angular/material/button';
+import { SliderModule } from '../shared/slider/slider.module';
+import { RepoListFilterComponent } from './component/repo-list-filter/repo-list-filter.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   imports: [
@@ -34,12 +37,15 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     MatTableModule,
     MatSortModule,
-    MatButtonModule
+    MatButtonModule,
+    SliderModule,
+    MatAutocompleteModule,
   ],
   declarations: [
     GithubRepoSearchPageComponent,
     GithubRepoInfoPageComponent,
-    RepoListComponent
+    RepoListComponent,
+    RepoListFilterComponent
   ],
   providers: [
     {

@@ -1,0 +1,30 @@
+<form>
+  <h4>Repo list filter</h4>
+  <mat-form-field>
+    <input
+      type="text"
+      placeholder="Programming language"
+      matInput
+      [matAutocomplete]="auto"
+    >
+    <mat-autocomplete
+      (optionSelected)="programmingLanguageChange.emit($event.option.value)"
+      autoActiveFirstOption
+      #auto="matAutocomplete"
+    >
+      <mat-option
+        *ngFor="let language of programmingLanguageList"
+        [value]="language"
+      >
+        {{language}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <span>{{numOpenIssuesRange.min}}</span>
+  <app-slider
+    (sliderChange)="maxOpenIssuesChange.emit($event)"
+    [range]="numOpenIssuesRange"
+    [initialValue]="numOpenIssuesRange.max"
+  ></app-slider>
+  <span>{{numOpenIssuesRange.max}}</span>
+</form>
