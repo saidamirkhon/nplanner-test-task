@@ -9,6 +9,8 @@ import { GITHUB_REPO_DEFAULT_STATE } from '../constant/github-repo-default-state
 import {
   fetchGithubRepoInfoSuccess,
   filterGithubRepoList,
+  resetGithubRepoList,
+  resetGithubRepoListFilter,
   searchGithubRepo,
   searchGithubRepoFail,
   searchGithubRepoSuccess
@@ -66,6 +68,24 @@ const reducer: ActionReducer<GithubRepoState> = createReducer(
           ...state.githubRepoListFilter,
           ...action.filterPatch
         }
+      };
+    }
+  ),
+  on(
+    resetGithubRepoList,
+    (state: GithubRepoState): GithubRepoState => {
+      return {
+        ...state,
+        githubRepoList: []
+      };
+    }
+  ),
+  on(
+    resetGithubRepoListFilter,
+    (state: GithubRepoState): GithubRepoState => {
+      return {
+        ...state,
+        githubRepoListFilter: {...GITHUB_REPO_DEFAULT_STATE.githubRepoListFilter}
       };
     }
   )

@@ -20,7 +20,6 @@ import {
   selectGithubRepoListIsLoading,
   selectNumMaxOpenIssuesFilter,
   selectNumOpenIssuesRange,
-  selectProgrammingLanguageFilter,
   selectProgrammingLanguageList
 } from '../state/github-repo.selectors';
 import { GithubRepo } from '../model/github-repo';
@@ -47,10 +46,6 @@ export class GithubRepoStateService {
   readonly numMaxOpenIssuesFilter$: Observable<number> =
     this.store$.pipe(
       select(selectNumMaxOpenIssuesFilter)
-    );
-  readonly programmingLanguageFilter$: Observable<string> =
-    this.store$.pipe(
-      select(selectProgrammingLanguageFilter)
     );
   readonly programmingLanguageList$: Observable<Array<string>> =
     this.store$.pipe(

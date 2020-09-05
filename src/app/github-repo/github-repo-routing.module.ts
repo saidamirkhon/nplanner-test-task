@@ -3,6 +3,8 @@ import { RouterModule } from '@angular/router';
 import { GithubRepoPath } from './enum/github-repo-path';
 import { GithubRepoSearchPageComponent } from './page/github-repo-search-page/github-repo-search-page.component';
 import { GithubRepoInfoPageComponent } from './page/github-repo-info-page/github-repo-info-page.component';
+import { FetchGithubRepoInfoGuard } from './service/fetch-github-repo-info.guard';
+import { ResetGithubRepoSearchGuard } from './service/reset-github-repo-search.guard';
 
 @NgModule({
   imports: [
@@ -14,11 +16,15 @@ import { GithubRepoInfoPageComponent } from './page/github-repo-info-page/github
       },
       {
         path: GithubRepoPath.SEARCH,
-        component: GithubRepoSearchPageComponent
+        component: GithubRepoSearchPageComponent,
+        canDeactivate: [
+          ResetGithubRepoSearchGuard
+        ]
       },
       {
         path: GithubRepoPath.INFO,
-        component: GithubRepoInfoPageComponent
+        component: GithubRepoInfoPageComponent,
+        canActivate: [FetchGithubRepoInfoGuard]
       },
       {
         path: '**',

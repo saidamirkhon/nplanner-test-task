@@ -10,5 +10,5 @@
 - ~~implement search input directive~~
 - ~~implement repository list dumb component~~
 - ~~implement filter bar dumb component~~
-- implement repo info dumb component
-- test and bug fix, styling tweaks
+- ~~implement repo info dumb component~~
+- ~~test and bug fix, styling tweaks~~

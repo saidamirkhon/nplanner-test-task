@@ -24,6 +24,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { SliderModule } from '../shared/slider/slider.module';
 import { RepoListFilterComponent } from './component/repo-list-filter/repo-list-filter.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FetchGithubRepoInfoGuard } from './service/fetch-github-repo-info.guard';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { ResetGithubRepoSearchGuard } from './service/reset-github-repo-search.guard';
 
 @NgModule({
   imports: [
@@ -40,6 +44,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatButtonModule,
     SliderModule,
     MatAutocompleteModule,
+    MatCardModule,
+    MatChipsModule
   ],
   declarations: [
     GithubRepoSearchPageComponent,
@@ -54,7 +60,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
       multi: true
     },
     GithubRepoApiService,
-    GithubRepoStateService
+    GithubRepoStateService,
+    FetchGithubRepoInfoGuard,
+    ResetGithubRepoSearchGuard
   ]
 })
 export class GithubRepoModule {

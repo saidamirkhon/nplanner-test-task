@@ -65,7 +65,7 @@ export const selectProgrammingLanguageList: MemoizedSelector<AppState, Array<str
         },
         {}
       );
-      return Object.keys(uniqueProgrammingLanguageList);
+      return Object.keys(uniqueProgrammingLanguageList).sort();
     }
   );
 const selectGithubRepoListFilter: MemoizedSelector<AppState, GithubRepoListFilter> =
@@ -82,7 +82,7 @@ export const selectNumMaxOpenIssuesFilter: MemoizedSelector<AppState, number> =
       numOpenIssuesRange: NumberRange
     ) => filter.maxOpenIssues ? filter.maxOpenIssues : numOpenIssuesRange.max
   );
-export const selectProgrammingLanguageFilter: MemoizedSelector<AppState, string> =
+const selectProgrammingLanguageFilter: MemoizedSelector<AppState, string> =
   createSelector(
     selectGithubRepoListFilter,
     (filter: GithubRepoListFilter) => filter.programmingLanguage

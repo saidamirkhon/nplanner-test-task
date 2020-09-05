@@ -1,0 +1,20 @@
+<mat-card *ngIf="activeGithubRepo$ | async as repo">
+  <mat-card-header>
+    <mat-card-title>{{repo.name}}</mat-card-title>
+    <mat-card-subtitle>{{repo.owner.login}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p *ngIf="repo.license">
+      License: {{repo.license.name}}
+    </p>
+    <p>
+      <mat-chip-list>
+        <mat-chip
+          *ngFor="let topic of repo.topics"
+        >
+          {{topic}}
+        </mat-chip>
+      </mat-chip-list>
+    </p>
+  </mat-card-content>
+</mat-card>
