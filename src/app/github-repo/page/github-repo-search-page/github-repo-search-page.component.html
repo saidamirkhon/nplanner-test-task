@@ -13,3 +13,7 @@
     ></mat-spinner>
   </mat-form-field>
 </form>
+<app-repo-list
+  (showRepoDetails)="showRepoDetails($event)"
+  [repoList]="repoList$ | async"
+></app-repo-list>

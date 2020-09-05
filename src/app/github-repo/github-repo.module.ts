@@ -17,6 +17,10 @@ import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { SearchInputModule } from '../shared/search-input/search-input.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { RepoListComponent } from './component/repo-list/repo-list.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
@@ -27,11 +31,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatInputModule,
     MatProgressSpinnerModule,
     SearchInputModule,
-    CommonModule
+    CommonModule,
+    MatTableModule,
+    MatSortModule,
+    MatButtonModule
   ],
   declarations: [
     GithubRepoSearchPageComponent,
-    GithubRepoInfoPageComponent
+    GithubRepoInfoPageComponent,
+    RepoListComponent
   ],
   providers: [
     {

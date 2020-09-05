@@ -1,0 +1,93 @@
+<table
+  mat-table
+  matSort
+  [dataSource]="dataSource"
+  [trackBy]="trackByRepoId"
+>
+  <ng-container matColumnDef="name">
+    <th
+      mat-header-cell
+      mat-sort-header
+      *matHeaderCellDef
+    >Name
+    </th>
+    <td
+      mat-cell
+      *matCellDef="let repo"
+    > {{repo.name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="description">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+    >Description
+    </th>
+    <td
+      mat-cell
+      *matCellDef="let repo"
+    > {{repo.description}} </td>
+  </ng-container>
+  <ng-container matColumnDef="language">
+    <th
+      mat-header-cell
+      mat-sort-header
+      *matHeaderCellDef
+    > Language
+    </th>
+    <td
+      mat-cell
+      *matCellDef="let repo"
+    >
+      {{repo.language}}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="open_issues_count">
+    <th
+      mat-header-cell
+      mat-sort-header
+      *matHeaderCellDef
+    >Open issues
+    </th>
+    <td
+      mat-cell
+      *matCellDef="let repo"
+    > {{repo.open_issues_count}} </td>
+  </ng-container>
+  <ng-container matColumnDef="url">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+    >Link
+    </th>
+    <td
+      mat-cell
+      *matCellDef="let repo"
+    ><a target="_blank" href="{{repo.html_url}}">{{repo.html_url}}</a></td>
+  </ng-container>
+  <ng-container matColumnDef="details">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+    >Details
+    </th>
+    <td
+      mat-cell
+      *matCellDef="let repo"
+    >
+      <button
+        mat-button
+        color="primary"
+        (click)="showRepoDetails.emit(repo)"
+      >Details
+      </button>
+    </td>
+  </ng-container>
+  <tr
+    mat-header-row
+    *matHeaderRowDef="displayedColumns; sticky: true"
+  ></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: displayedColumns;"
+  ></tr>
+</table>
