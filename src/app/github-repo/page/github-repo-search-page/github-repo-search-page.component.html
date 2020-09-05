@@ -1,0 +1,15 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Search repo</mat-label>
+    <input
+      (appSearch)="searchRepo($event)"
+      matInput
+      placeholder="Type repo name..."
+    >
+    <mat-spinner
+      diameter="16"
+      [style.opacity]="(repoListIsLoading$ | async) ? 1 : 0"
+      matSuffix
+    ></mat-spinner>
+  </mat-form-field>
+</form>

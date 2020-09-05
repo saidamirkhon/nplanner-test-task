@@ -7,7 +7,7 @@
 - ~~design domain object models~~ 
 - ~~implement api service~~
 - ~~state setup~~
-- implement search input directive
+- ~~implement search input directive~~
 - implement repository list dumb component
 - implement filter bar dumb component
 - implement repo info dumb component

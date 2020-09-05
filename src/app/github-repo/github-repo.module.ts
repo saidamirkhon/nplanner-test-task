@@ -13,13 +13,21 @@ import { githubRepoReducer } from './state/github-repo.reducer';
 import { GithubRepoStateService } from './service/github-repo-state.service';
 import { EffectsModule } from '@ngrx/effects';
 import { GithubRepoEffects } from './state/github-repo.effects';
+import { MatInputModule } from '@angular/material/input';
+import { CommonModule } from '@angular/common';
+import { SearchInputModule } from '../shared/search-input/search-input.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
     GithubRepoRoutingModule,
     HttpClientModule,
     StoreModule.forFeature('githubRepo', githubRepoReducer),
-    EffectsModule.forFeature([GithubRepoEffects])
+    EffectsModule.forFeature([GithubRepoEffects]),
+    MatInputModule,
+    MatProgressSpinnerModule,
+    SearchInputModule,
+    CommonModule
   ],
   declarations: [
     GithubRepoSearchPageComponent,
